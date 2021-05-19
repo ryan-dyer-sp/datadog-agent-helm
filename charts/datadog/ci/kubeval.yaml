@@ -1,9 +1,6 @@
 datadog:
   apiKey: "00000000000000000000000000000000"
   appKey: "0000000000000000000000000000000000000000"
-  kubelet:
-    hostCAPath: /foo/bar/cert.ca
-    agentCAPath: /bar/foo/cert.ca
   env:
   - name: "DD_KUBELET_TLS_VERIFY"
     value: "false"
@@ -15,9 +12,8 @@ datadog:
   processAgent:
     enabled: true
     processCollection: true
-  networkMonitoring:
-    enabled: true
   systemProbe:
+    enabled: true
     enableConntrack: true
     enableTCPQueueLength: true
     enableOOMKill: true
@@ -53,9 +49,3 @@ agents:
   podSecurity:
     podSecurityPolicy:
       create: true
-  containers:
-    agent:
-      ports:
-      - containerPort: 6666
-        name: testport
-        protocol: UDP
